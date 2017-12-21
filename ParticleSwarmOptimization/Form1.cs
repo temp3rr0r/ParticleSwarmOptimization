@@ -30,7 +30,7 @@ namespace ParticleSwarmOptimization
 
         static double GetError2(double[] x)
         {
-            // -ax\ -\ \ b ^ 2\ +\ 2 ^ x
+            // Just a random function: -ax - b ^ 2 +  2 ^ x
             double expectedMin = -0.0861; // true min x,y = (0.5288, -0.0861)
             double z = -x[0] - 1 + Math.Pow(2, x[0]);
             return Math.Pow(z - expectedMin, 2); // MSE
@@ -69,7 +69,6 @@ namespace ParticleSwarmOptimization
             double sum = 0;
             for (int i = 1; i <= d; i++)
             {
-
                 double xi = xArray[i - 1];
                 sum += Math.Sin(xi) * Math.Pow(Math.Sin(i * Math.Pow(xi, 2) / Math.PI), 2 * m);
             }
@@ -87,7 +86,6 @@ namespace ParticleSwarmOptimization
             double sum = 0;
             for (int i = 1; i <= d; i++)
             {
-
                 double xi = xArray[i - 1];
                 sum += Math.Sin(xi) * Math.Pow(Math.Sin(i * Math.Pow(xi, 2) / Math.PI), 2 * m);
             }
@@ -156,7 +154,8 @@ namespace ParticleSwarmOptimization
         private void button4_Click(object sender, EventArgs e)
         {
             ParticleProgram.Run(MichalewiczMse2, particleCount: 1000, dimensions: 2, maxEpochs: 30, minAcceptedError: 0, minX: 0, maxX: Math.PI);
-            //ParticleProgram.Run(MichalewiczMse5, particleCount: 1000, dimensions: 5, maxEpochs: 1000, minAcceptedError: 0, minX: 0, maxX: Math.PI);
+            //ParticleProgram.Run(MichalewiczMse5, particleCount: 1000, dimensions: 5, maxEpochs: 300, minAcceptedError: 0, minX: 0, maxX: Math.PI);
+            //ParticleProgram.Run(MichalewiczMse10, particleCount: 1000, dimensions: 10, maxEpochs: 1000, minAcceptedError: 0, minX: 0, maxX: Math.PI);
         }
 
         private void button5_Click(object sender, EventArgs e)
